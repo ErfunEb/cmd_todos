@@ -88,15 +88,10 @@ impl App {
   }
 
   fn migrate(&self) {
+    let statement = "CREATE TABLE IF NOT EXISTS todos (id integer primary key, name text not null unique, done boolean default(false))";
     self
       .connection
-      .execute(
-        "create table if not exists todos (
-         id integer primary key,
-         name text not null unique,
-         done boolean default(false)
-     )",
-      )
+      .execute(statement)
       .expect("Error creating table");
   }
 
