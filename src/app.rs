@@ -111,9 +111,7 @@ impl App {
         "3" => self.mark_as_done(),
         "4" => self.delete_todo(),
         "5" => break,
-        _ => {
-          println!("Wrong command!")
-        }
+        _ => println!("Wrong command!"),
       }
     }
   }
